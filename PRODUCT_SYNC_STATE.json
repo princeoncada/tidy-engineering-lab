@@ -1,14 +1,14 @@
 {
   "productRepo": "https://github.com/princeoncada/tidy",
-  "lastSeenProductVersion": "1.9.2",
+  "lastSeenProductVersion": "1.9.5",
   "lastSeenProductState": "stable",
-  "lastSeenProductPhase": "1.9.2",
-  "lastSeenProductPhaseTitle": "Extract List Mutation Cache Helpers",
-  "lastSeenProductNextPhase": "1.9.3 - Extract View Mutation Cache Helpers",
-  "lastSeenProductUpdatedAt": "2026-06-05",
-  "lastSyncedIntoLabAt": "2026-06-05",
-  "syncStatus": "initialized-from-current-product-state",
-  "versionsTracked": [],
-  "pendingVersionReviews": ["1.9.2"],
-  "chaptersNeedingRebaseline": []
+  "lastSeenProductPhase": "1.9.5",
+  "lastSeenProductPhaseTitle": "Dashboard Mutation to Outbox Wiring",
+  "lastSeenProductNextPhase": "1.9.6 - Durable Pending-Write Integration",
+  "lastSeenProductUpdatedAt": "2026-06-06",
+  "lastSyncedIntoLabAt": "2026-06-06",
+  "syncStatus": "synced-from-current-product-state",
+  "versionsTracked": ["1.9.2", "1.9.3", "1.9.4", "1.9.5"],
+  "pendingVersionReviews": ["1.9.3", "1.9.4", "1.9.5"],
+  "chaptersNeedingRebaseline": ["10-1.9-dashboard-mutation-chokepoint"]
 }

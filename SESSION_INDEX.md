@@ -8,7 +8,7 @@ Use this file to list prior sessions, choose a session to review, or set a past 
 
 | Session ID | Date | Title | Chapter / Target | Product Version | Status | Summary File | Restudy Command |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| TBD | TBD | No sessions closed yet | TBD | TBD | Empty | TBD | TBD |
+| 2026-06-06-navigation-bootcamp | 2026-06-06 | Navigation Bootcamp | `00-navigation-bootcamp` | 1.9.5 | Restudy-ready | `sessions/2026/06/2026-06-06-navigation-bootcamp.md` | `/restudy-session 2026-06-06-navigation-bootcamp` |
 
 ## Status Values
 

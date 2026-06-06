@@ -1,0 +1,22 @@
+{
+  "studyVersion": "0.1.0",
+  "labState": "initialized",
+  "productRepo": "https://github.com/princeoncada/tidy",
+  "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
+  "currentStudyTrack": "reading-navigation",
+  "currentChapter": "00-navigation-bootcamp",
+  "currentSession": null,
+  "lastMainRepoStateRead": {
+    "version": "1.9.2",
+    "state": "stable",
+    "phase": "1.9.2",
+    "phaseTitle": "Extract List Mutation Cache Helpers",
+    "nextPhase": "1.9.3 - Extract View Mutation Cache Helpers",
+    "lastUpdated": "2026-06-05"
+  },
+  "completedChapters": [],
+  "activeOpenQuestions": 0,
+  "activeSlopFindings": 0,
+  "nextRecommendedStudyTarget": "00-navigation-bootcamp",
+  "lastUpdated": "2026-06-05"
+}

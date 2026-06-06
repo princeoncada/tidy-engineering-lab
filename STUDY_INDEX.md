@@ -34,6 +34,9 @@ Next recommended target: `00-navigation-bootcamp`
 Latest handoff:
 `handoffs/latest.md`
 
+Session index:
+`SESSION_INDEX.md`
+
 Open questions:
 `ledgers/open-questions.md`
 

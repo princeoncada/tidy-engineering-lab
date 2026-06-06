@@ -1,0 +1,58 @@
+# Study Session Index
+
+Tracks completed and restudy-ready Tidy Engineering Lab study sessions.
+
+Use this file to list prior sessions, choose a session to review, or set a past session as a restudy target.
+
+## Session Table
+
+| Session ID | Date | Title | Chapter / Target | Product Version | Status | Summary File | Restudy Command |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| TBD | TBD | No sessions closed yet | TBD | TBD | Empty | TBD | TBD |
+
+## Status Values
+
+| Status | Meaning |
+| --- | --- |
+| Completed | Session was closed and persisted. |
+| Restudy-ready | Session can be used as a future study target. |
+| Needs refresh | Session content may be stale against current product truth. |
+| Superseded | Session was replaced by a newer study or rebaseline. |
+
+## Restudy Rules
+
+When Prince runs `/restudy-session [session-id]`:
+
+1. Read `SESSION_INDEX.md`.
+2. Find the session row by Session ID.
+3. Read the linked session summary file.
+4. Read current product source-of-truth files fresh.
+5. Report what still holds, what is stale, and what changed.
+6. Set the current target to restudy that session.
+
+When Prince runs `/session [session-id]`:
+
+1. Read `SESSION_INDEX.md`.
+2. Read the linked session summary file.
+3. Summarize what was learned, what files were touched/read, what open questions remain, and what follow-up target fits.
+
+When Prince runs `/sessions`:
+
+1. Read `SESSION_INDEX.md`.
+2. Show a compact list of available sessions.
+3. Recommend the best session to continue or restudy based on current lab state.
+
+## Close Study Index Contract
+
+Every `/close-study` should update this file by adding or updating one row for the closed session.
+
+The row should include:
+
+- stable session ID
+- date
+- title
+- chapter or study target
+- product version studied
+- status
+- summary file path
+- restudy command

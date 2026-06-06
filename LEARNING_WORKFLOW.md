@@ -35,16 +35,36 @@ Implementation requires Prince to explicitly say `implementation mode`.
 
 ## Commands
 
+Full command reference lives in `COMMANDS.md`.
+
 | Command | Purpose |
 | --- | --- |
+| `/help` | Show available study commands, explain command differences, and recommend the best next command. |
 | `/start-study [target]` | Start a study session. |
 | `/study-target [target]` | Set or change the current target. |
 | `/explain-file [path]` | Walk through one file deeply. |
 | `/trace-flow [behavior]` | Trace a behavior across UI, hooks, cache, API, database, and tests where applicable. |
 | `/slop-audit` | Review the studied area for risk and code quality. |
 | `/self-check` | Quiz Prince on the current material. |
+| `/sync-product-version` | Refresh lab tracking from current product source-of-truth files. |
+| `/check-lab-drift` | Compare lab state against product truth and report stale or mismatched learning/doc state. |
 | `/close-study` | Save session summary, handoff, state updates, and ledger changes. |
 | `/implementation-mode` | Switch to implementation planning. Not allowed by default. |
+
+## Response Footer
+
+At the end of every study response, include a compact footer with:
+
+- **Recommended next step** - the single best next action.
+- **Useful commands** - 1 to 3 commands that fit the current state.
+- **Questions you can ask** - 1 to 3 plain-English follow-up questions Prince can ask next.
+- **Help reminder** - mention `/help` when command discovery would help.
+
+Keep the footer compact and practical. Do not let the footer replace the actual answer.
+
+## Unknown Commands
+
+If Prince uses an undocumented command, do not silently invent behavior. State that it is not currently documented, infer the likely intent if obvious, recommend the closest known command, and point to `/help`.
 
 ## Session Close Requirements
 

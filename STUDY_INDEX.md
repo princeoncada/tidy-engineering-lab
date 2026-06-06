@@ -2,9 +2,9 @@
 
 ## Current Position
 
-Current chapter: `00-navigation-bootcamp`
+Current chapter: `01-pre-versioning-product-baseline`
 Current mode: Reading and navigation
-Next recommended target: `00-navigation-bootcamp`
+Next recommended target: `01-pre-versioning-product-baseline`
 
 ## Source Repos
 
@@ -17,8 +17,8 @@ Next recommended target: `00-navigation-bootcamp`
 
 | Track | Chapter | Status | Purpose |
 | --- | --- | --- | --- |
-| Navigation Bootcamp | `00-navigation-bootcamp` | Not started | Learn repo navigation, source-of-truth docs, and safe reading workflow |
-| Product Baseline | `01-pre-versioning-product-baseline` | Not started | Understand the actual app architecture before versioned workflow history |
+| Navigation Bootcamp | `00-navigation-bootcamp` | Completed | Learn repo navigation, source-of-truth docs, and safe reading workflow |
+| Product Baseline | `01-pre-versioning-product-baseline` | Next | Understand the actual app architecture before versioned workflow history |
 | Dexie Foundation | `02-dexie-foundation` | Not started | Understand local DB foundation and non-runtime boundaries |
 | Outbox Sync Queue | `03-outbox-sync-queue` | Not started | Understand outbox helpers, coalescing, replay, and deferred sync |
 | View Filter Hardening | `04-view-filter-hardening` | Not started | Understand projection correctness and view/list/tag consistency |

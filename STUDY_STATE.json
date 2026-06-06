@@ -7,16 +7,16 @@
   "currentChapter": "00-navigation-bootcamp",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "1.9.2",
+    "version": "1.9.5",
     "state": "stable",
-    "phase": "1.9.2",
-    "phaseTitle": "Extract List Mutation Cache Helpers",
-    "nextPhase": "1.9.3 - Extract View Mutation Cache Helpers",
-    "lastUpdated": "2026-06-05"
+    "phase": "1.9.5",
+    "phaseTitle": "Dashboard Mutation to Outbox Wiring",
+    "nextPhase": "1.9.6 - Durable Pending-Write Integration",
+    "lastUpdated": "2026-06-06"
   },
   "completedChapters": [],
   "activeOpenQuestions": 0,
   "activeSlopFindings": 0,
   "nextRecommendedStudyTarget": "00-navigation-bootcamp",
-  "lastUpdated": "2026-06-05"
+  "lastUpdated": "2026-06-06"
 }

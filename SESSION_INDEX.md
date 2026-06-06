@@ -8,6 +8,7 @@ Use this file to list prior sessions, choose a session to review, or set a past 
 
 | Session ID | Date | Title | Chapter / Target | Product Version | Status | Summary File | Restudy Command |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-06-07-product-first-roadmap-rebaseline | 2026-06-07 | Product-First Roadmap Rebaseline | `1.10.0-product-first-planning-contract-roadmap-rebaseline` | 1.9.10 | Restudy-ready | `sessions/2026/06/2026-06-07-product-first-roadmap-rebaseline.md` | `/restudy-session 2026-06-07-product-first-roadmap-rebaseline` |
 | 2026-06-06-navigation-bootcamp | 2026-06-06 | Navigation Bootcamp | `00-navigation-bootcamp` | 1.9.5 | Restudy-ready | `sessions/2026/06/2026-06-06-navigation-bootcamp.md` | `/restudy-session 2026-06-06-navigation-bootcamp` |
 
 ## Status Values

@@ -3,20 +3,20 @@
   "labState": "studying",
   "productRepo": "https://github.com/princeoncada/tidy",
   "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
-  "currentStudyTrack": "product-baseline",
+  "currentStudyTrack": "product-direction",
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "1.9.5",
+    "version": "1.9.10",
     "state": "stable",
-    "phase": "1.9.5",
-    "phaseTitle": "Dashboard Mutation to Outbox Wiring",
-    "nextPhase": "1.9.6 - Durable Pending-Write Integration",
+    "phase": "1.9.10",
+    "phaseTitle": "Local DB Source-of-Truth Decision",
+    "nextPhase": "1.10.0 - Deploy Env Documentation",
     "lastUpdated": "2026-06-06"
   },
   "completedChapters": ["00-navigation-bootcamp"],
-  "activeOpenQuestions": 3,
-  "activeSlopFindings": 5,
-  "nextRecommendedStudyTarget": "01-pre-versioning-product-baseline",
-  "lastUpdated": "2026-06-06"
+  "activeOpenQuestions": 4,
+  "activeSlopFindings": 6,
+  "nextRecommendedStudyTarget": "1.10.0-product-first-planning-contract-roadmap-rebaseline",
+  "lastUpdated": "2026-06-07"
 }

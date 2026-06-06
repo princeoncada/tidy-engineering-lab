@@ -45,6 +45,7 @@ Startup protocol:
 
 Commands:
 
+* `/help`
 * `/start-study [chapter-or-target]`
 * `/study-target [target]`
 * `/explain-file [path]`
@@ -55,5 +56,11 @@ Commands:
 * `/check-lab-drift`
 * `/close-study`
 * `/implementation-mode`
+
+Command reference:
+Read `COMMANDS.md` when Prince asks `/help`, forgets command names, asks what to run next, or uses an undocumented command.
+
+Response footer:
+At the end of every study response, include a compact footer with recommended next step, useful commands, questions Prince can ask, and a `/help` reminder when useful.
 
 --- END ---

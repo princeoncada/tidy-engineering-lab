@@ -1,0 +1,14 @@
+{
+  "productRepo": "https://github.com/princeoncada/tidy",
+  "lastSeenProductVersion": "1.9.2",
+  "lastSeenProductState": "stable",
+  "lastSeenProductPhase": "1.9.2",
+  "lastSeenProductPhaseTitle": "Extract List Mutation Cache Helpers",
+  "lastSeenProductNextPhase": "1.9.3 - Extract View Mutation Cache Helpers",
+  "lastSeenProductUpdatedAt": "2026-06-05",
+  "lastSyncedIntoLabAt": "2026-06-05",
+  "syncStatus": "initialized-from-current-product-state",
+  "versionsTracked": [],
+  "pendingVersionReviews": ["1.9.2"],
+  "chaptersNeedingRebaseline": []
+}

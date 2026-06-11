@@ -7,16 +7,16 @@
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "1.9.10",
+    "version": "1.9.23",
     "state": "stable",
-    "phase": "1.9.10",
-    "phaseTitle": "Local DB Source-of-Truth Decision",
-    "nextPhase": "1.10.0 - Deploy Env Documentation",
-    "lastUpdated": "2026-06-06"
+    "phase": "1.9.23",
+    "phaseTitle": "Dexie-First List & Item CRUD",
+    "nextPhase": "1.9.24 - Dexie-First Movement, Ordering & View-Switch Consistency",
+    "lastUpdated": "2026-06-10"
   },
   "completedChapters": ["00-navigation-bootcamp"],
   "activeOpenQuestions": 4,
   "activeSlopFindings": 6,
-  "nextRecommendedStudyTarget": "1.10.0-product-first-planning-contract-roadmap-rebaseline",
-  "lastUpdated": "2026-06-07"
+  "nextRecommendedStudyTarget": "1.9.24-dexie-first-movement-ordering-view-switch-consistency",
+  "lastUpdated": "2026-06-11"
 }

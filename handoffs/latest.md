@@ -2,75 +2,52 @@
 
 ## Status
 
-Product-direction and workflow-correction session closed.
+Product repo sync refreshed for branch-review support.
 
-This was not a normal code-study session. It was a valid lab closeout because it changed the recommended product roadmap direction and workflow contract.
+This is a study-repo-only sync. No product code was changed.
 
 ## Product repo
 
 `princeoncada/tidy`
 
-## Product state read during session
+## Product state read during sync
 
-* Version: 1.9.10
+* Version: 1.9.28
 * State: stable
-* Phase: 1.9.10
-* Phase title: Local DB Source-of-Truth Decision
-* Current product next phase before correction: 1.10.0 - Deploy Env Documentation
-* Last updated: 2026-06-06
+* Phase: 1.9.28
+* Phase title: Dexie-First Reconcile Overlay
+* Next phase: 1.9.29 - Direct-Write Retirement & Default Dexie-First
+* Last updated: 2026-06-12
 
-## Session summary
+## Current product arc
 
-Saved session summary:
+Tidy is in the 1.9.x local-first dashboard series. The latest completed product state includes the Dexie-first reconcile overlay. The next planned phase is direct-write retirement and making Dexie-first the default dashboard write path.
 
-* `sessions/2026/06/2026-06-07-product-first-roadmap-rebaseline.md`
+## Important branch-review context
 
-Restudy command:
+Prince expects to provide an existing product branch link next. The assistant should review and assist with manual resolution, not write product code unless Prince explicitly enters implementation mode.
 
-* `/restudy-session 2026-06-07-product-first-roadmap-rebaseline`
+For branch review, read fresh product source-of-truth first:
 
-## What Prince decided
+* `STATE.json`
+* `codebase-graph.json`
+* `docs/CONTEXT_INDEX.md`
+* `docs/AI_HANDOFF.md`
+* `docs/FUTURE_PLANS.md`
+* `docs/VERSIONING.md` when versioning/state is relevant
 
-* Tidy's near-term identity is a fast personal todo app with local-first UX, built as a portfolio-grade engineering showcase.
-* Dexie continues, but only as product-integrated local-first dashboard behavior, not hidden infrastructure.
-* Dexie target is dashboard CRUD as a working local runtime source first. Full local-first database ownership may be considered later only if the dashboard slice proves it is correct.
-* TanStack Query stays as a server sync/hydration bridge during migration, but should not permanently block Dexie from becoming the local runtime source for dashboard behavior.
-* Redis is deferred. It is a future server-side optimization possibility, not a Dexie replacement for browser-side local-first UX.
-* Feature-flagged Dexie work should be dev-gated first, with explicit activation/removal criteria.
-* Validation policy is targeted validation during alpha, then full validation before stable promotion.
-* Roadmap stays linear, but every phase must declare type, implementation goal, product/user impact, runtime integration target, deferral boundaries, and validation target.
+Then read the branch/PR diff or changed files supplied by Prince.
 
-## Main workflow correction
+## Current synced study state
 
-The 1.9.5 to 1.9.10 arc exposed workflow drift: infrastructure, gated behavior, and decision-only work were allowed to feel like product progress.
-
-Future phases do not all need to be user-visible, but they must clearly declare implementation intent, product relationship, runtime integration target, and deferral boundaries. No phase may silently defer expected product integration without naming the follow-up phase or decision.
-
-## Final locked next phase name
-
-`1.10.0 - Product-First Planning Contract and Roadmap Rebaseline`
-
-This should supersede the current product roadmap's next planned item, `1.10.0 - Deploy Env Documentation`, unless Prince explicitly chooses otherwise.
-
-## Recommended next action
-
-Start next session with one of:
-
-* `/study-target 1.10.0-product-first-planning-contract-roadmap-rebaseline`
-* Open implementation planning for `1.10.0 - Product-First Planning Contract and Roadmap Rebaseline`
-
-Do not write product code unless Prince explicitly enters implementation mode.
+* `PRODUCT_SYNC_STATE.json` synced to product `1.9.28`
+* `STUDY_STATE.json` last product read synced to product `1.9.28`
+* Recommended study/review target: `1.9.29-direct-write-retirement-default-dexie-first`
 
 ## Carry forward
 
-* Read product source-of-truth docs fresh before making product claims.
-* Study repo owns learning truth only; product repo owns product truth.
-* Product repo should not be changed in normal study mode.
-* Closeout preserved decisions, not raw discussion.
-
-## Exclude from future handoffs
-
-* Raw frustration/rant wording.
-* Full conversation transcript.
-* Product claims not backed by source reads.
-* Full product doc copies.
+* `princeoncada/tidy` owns product truth.
+* `princeoncada/tidy-engineering-lab` owns learning/sync truth.
+* Do not write to `princeoncada/tidy` in normal study/review mode.
+* Use pushed GitHub state and pasted local evidence only; do not claim local branch facts unless Prince provides them.
+* For source-heavy or conflict-resolution review, ask for or use a Local Evidence Packet when needed: `git status --short`, `git log --oneline -5`, `Get-Content STATE.json`, graph output, and diff/status evidence.

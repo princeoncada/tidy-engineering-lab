@@ -1,6 +1,6 @@
 {
   "studyVersion": "0.1.0",
-  "labState": "studying",
+  "labState": "paused-after-close-study",
   "productRepo": "https://github.com/princeoncada/tidy",
   "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
   "currentStudyTrack": "product-direction",
@@ -15,8 +15,9 @@
     "lastUpdated": "2026-06-13"
   },
   "completedChapters": ["00-navigation-bootcamp"],
-  "activeOpenQuestions": 4,
-  "activeSlopFindings": 6,
-  "nextRecommendedStudyTarget": "1.9.30-local-first-dashboard-architecture-closeout",
+  "activeOpenQuestions": 5,
+  "activeSlopFindings": 7,
+  "nextRecommendedStudyTarget": "1.9.30-option-a-outbox-removal-payload-validation-fix",
+  "lastSessionSummary": "sessions/2026/06/session-summary.md",
   "lastUpdated": "2026-06-13"
 }

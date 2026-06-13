@@ -7,16 +7,16 @@
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "1.9.28",
+    "version": "1.9.29",
     "state": "stable",
-    "phase": "1.9.28",
-    "phaseTitle": "Dexie-First Reconcile Overlay",
-    "nextPhase": "1.9.29 - Direct-Write Retirement & Default Dexie-First",
-    "lastUpdated": "2026-06-12"
+    "phase": "1.9.29",
+    "phaseTitle": "Direct-Write Retirement & Default Dexie-First",
+    "nextPhase": "1.9.30 - Local-First Dashboard Architecture Closeout",
+    "lastUpdated": "2026-06-13"
   },
   "completedChapters": ["00-navigation-bootcamp"],
   "activeOpenQuestions": 4,
   "activeSlopFindings": 6,
-  "nextRecommendedStudyTarget": "1.9.29-direct-write-retirement-default-dexie-first",
+  "nextRecommendedStudyTarget": "1.9.30-local-first-dashboard-architecture-closeout",
   "lastUpdated": "2026-06-13"
 }

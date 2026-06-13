@@ -2,21 +2,21 @@
 
 ## Status
 
-Product repo sync refreshed after 1.9.29 was merged and promoted on `master`.
+Study session closed after 1.9.29 merge/promotion support and post-closeout sync-badge diagnosis.
 
-This is a study-repo-only sync. No product code was changed.
+This is a study-repo-only handoff. No product code was changed by the assistant.
 
 ## Product repo
 
 `princeoncada/tidy`
 
-## Product state read during sync
+## Product state read during session
 
 * Version: 1.9.29
 * State: stable
 * Phase: 1.9.29
 * Phase title: Direct-Write Retirement & Default Dexie-First
-* Next phase: 1.9.30 - Local-First Dashboard Architecture Closeout
+* Next phase in product source of truth: 1.9.30 - Local-First Dashboard Architecture Closeout
 * Last updated: 2026-06-13
 
 ## Completed 1.9.29 branch-review context
@@ -31,24 +31,93 @@ Prince manually resolved and validated the 1.9.29 branch. Final local proof repo
 Important fixes made during review:
 
 * `components/list/ListsContainer.tsx` removed render-time ref access in the authoritative query snapshot helper.
-* `components/list/ListItemComponent.tsx` stopped keeping deleted items mounted as matching `data-testid=list-item` rows.
+* `components/list/ListItemComponent.tsx` stopped keeping removed items mounted as matching `data-testid=list-item` rows.
 * `components/list/ListsContainer.tsx` preserved the final coalesced item movement when multiple drops happen before the debounced item-order write flushes.
 * `tests/e2e/utils/seed.ts` ignored transient Supabase auth `_getUser` fetch noise in e2e console collection.
 
-## Current product arc
+## New issue discovered after 1.9.29 stable
 
-Tidy has completed the 1.9.29 Direct-Write Retirement & Default Dexie-First phase. The next planned phase is 1.9.30, a local-first dashboard architecture closeout decision. The product roadmap describes this as evaluating the shipped reconciled read graph, Dexie-first dashboard writes, and bounded server batch sync, then recording whether the 1.9.x local-first series is complete or whether another explicitly versioned product phase remains.
+Prince noticed the sync status badge reporting local operations needing attention. IndexedDB inspection showed mostly removal operations in `outboxOperations`. A `/api/sync` request returned HTTP 200 but per-operation results rejected those removal operations with:
+
+`Delete operations must include a non-empty payload for server validation.`
+
+After the sync attempt, local outbox rows were marked failed with the same error message.
+
+Diagnosis:
+
+* The sync badge is doing its job; it reads pending/syncing/failed local outbox rows.
+* Client Dexie/outbox removal producers are emitting operations with empty payloads.
+* Server sync validation rejects removal operations whose payload is an empty object.
+* Therefore, this is a client/server removal-operation payload contract mismatch and a product behavior bug.
+
+## Direction chosen by Prince
+
+Prince prefers Option A:
+
+* Keep server validation strict.
+* Do not relax the sync endpoint contract to allow empty removal payloads.
+* Update every Dexie/outbox removal producer to emit a non-empty payload.
+* Canonical payload direction: `{ deleted: true }`.
+
+## Recommended next action
+
+Do not close the 1.9.x architecture series yet. The next continuation should resolve the outbox removal payload bug before architecture closeout.
+
+Recommended target:
+
+`1.9.30-option-a-outbox-removal-payload-validation-fix`
+
+Depending on product versioning rules, either convert 1.9.30 into the payload fix and push architecture closeout after it, or create an explicit patch phase and keep architecture closeout as the following versioned decision.
+
+## Expected implementation scope for Claude Code
+
+Search for all outbox producers that create removal operations with empty payloads. Update those operations to use the canonical non-empty payload shape:
+
+`payload: { deleted: true }`
+
+Likely files to inspect:
+
+* `lib/local-db/local-write.ts`
+* `components/list/ListsContainer.tsx`
+* `components/list/ListComponent.tsx`
+* `components/list/ListItemComponent.tsx`
+* `components/views/ViewsSidebarPreview.tsx`
+* `lib/sync/sync-endpoint-contract.ts`
+* `lib/sync/sync-batch-contract.ts`
+* `lib/local-db/outbox-repository.ts`
+* `tests/unit/local-write.test.ts`
+* `tests/unit/sync-endpoint-contract.test.ts`
+* `tests/unit/sync-batch-contract.test.ts`
+* `tests/unit/local-overlay.test.ts`
+* authenticated e2e specs touching removal flows
+
+Validation target:
+
+* `npm test -- local-write.test.ts sync-endpoint-contract.test.ts sync-batch-contract.test.ts local-overlay.test.ts`
+* `./scripts/validate.ps1`
+* `npm run test:ci`
+* `npm run test:e2e:auth`
+
+Manual proof target:
+
+1. Reset disposable local dev/test outbox rows only if safe.
+2. Reload dashboard.
+3. Perform a test removal operation.
+4. Confirm `/api/sync` is called.
+5. Confirm the operation returns `applied` or `already-applied`.
+6. Confirm the sync badge no longer reports failed local removal operations.
+7. Inspect IndexedDB and confirm no failed row with the empty-payload validation error.
 
 ## Current synced study state
 
 * `PRODUCT_SYNC_STATE.json` synced to product `1.9.29`
 * `STUDY_STATE.json` last product read synced to product `1.9.29`
-* Recommended study/review target: `1.9.30-local-first-dashboard-architecture-closeout`
+* Recommended next target is now the outbox removal payload validation fix, not pure architecture closeout.
 
 ## Carry forward
 
 * `princeoncada/tidy` owns product truth.
 * `princeoncada/tidy-engineering-lab` owns learning/sync truth.
-* Do not write to `princeoncada/tidy` in normal study/review mode.
 * Read product source-of-truth fresh before making product claims.
-* For 1.9.30, focus on architecture decision evidence, not more product implementation unless Prince explicitly enters implementation mode.
+* Do not write to `princeoncada/tidy` in normal study/review mode.
+* Do not enter implementation unless Prince explicitly says `implementation mode`.

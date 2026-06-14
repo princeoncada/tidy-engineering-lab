@@ -2,117 +2,48 @@
 
 ## Status
 
-Study session closed after 1.9.29 merge/promotion support and post-closeout sync-badge diagnosis.
+Study repo synced to the latest pushed product source-of-truth state on 2026-06-14.
 
-This is a study-repo-only handoff. No product code was changed by the assistant.
+This is a study-repo-only sync handoff. No product code was changed by the assistant.
 
 ## Product repo
 
 `princeoncada/tidy`
 
-## Product state read during session
+## Product state read during sync
 
-* Version: 1.9.29
+* Version: 2.0.3
 * State: stable
-* Phase: 1.9.29
-* Phase title: Direct-Write Retirement & Default Dexie-First
-* Next phase in product source of truth: 1.9.30 - Local-First Dashboard Architecture Closeout
-* Last updated: 2026-06-13
+* Phase: 2.0.3
+* Phase title: Sharing & Permissions
+* Next phase in product source of truth: 2.0.4 - Yjs Collaborative Item Notes
+* Last updated: 2026-06-14
 
-## Completed 1.9.29 branch-review context
+## Latest implementation checked
 
-Prince manually resolved and validated the 1.9.29 branch. Final local proof reported before sync:
+Product source-of-truth now records 2.0.3 as stable. The roadmap shows 2.0.3 - Sharing & Permissions completed on 2026-06-14, and the first Planned item is now 2.0.4 - Yjs Collaborative Item Notes.
 
-* `git status --short` clean
-* `./scripts/validate.ps1` passed: 16/16
-* `npm run test:ci` passed: typecheck, lint, 402 unit tests, 5 unauthenticated e2e
-* `npm run test:e2e:auth` passed: 31 passed, 1 skipped
+Important implementation surfaces visible in the latest product handoff/source:
 
-Important fixes made during review:
+* Sharing data model now includes `Workspace`, `WorkspaceMember`, `ListShare`, and `ShareLink`.
+* Sharing roles are `OWNER`, `EDITOR`, and `VIEWER`.
+* Effective list access is the strongest of direct ownership, direct list share, workspace ownership, or workspace membership.
+* Key implementation files now include `lib/sync/permissions.ts`, `trpc/routers/shareRouter.ts`, `components/sharing/*`, and `app/share/[token]/page.tsx`.
+* Replicache pull computes a recipient's shared-list union at read time. Shared lists are appended after owned lists with synthetic All Lists membership/order in the client view only; recipient entries include items and effective role but keep owner tags/custom views private.
 
-* `components/list/ListsContainer.tsx` removed render-time ref access in the authoritative query snapshot helper.
-* `components/list/ListItemComponent.tsx` stopped keeping removed items mounted as matching `data-testid=list-item` rows.
-* `components/list/ListsContainer.tsx` preserved the final coalesced item movement when multiple drops happen before the debounced item-order write flushes.
-* `tests/e2e/utils/seed.ts` ignored transient Supabase auth `_getUser` fetch noise in e2e console collection.
+## Study repo sync changes
 
-## New issue discovered after 1.9.29 stable
+* `PRODUCT_SYNC_STATE.json` now points to product 2.0.3 stable.
+* `STUDY_STATE.json` now records the latest product read as 2.0.3 stable.
+* The previous 1.9.30 delete-payload fix recommendation is no longer current product truth; it is now historical because 1.9.30, 1.9.31, 1.9.32, 1.10.0, 1.10.1, 2.0.0, 2.0.1, 2.0.2, and 2.0.3 are complete in the product roadmap.
 
-Prince noticed the sync status badge reporting local operations needing attention. IndexedDB inspection showed mostly removal operations in `outboxOperations`. A `/api/sync` request returned HTTP 200 but per-operation results rejected those removal operations with:
+## Recommended next study action
 
-`Delete operations must include a non-empty payload for server validation.`
+Recommended study target:
 
-After the sync attempt, local outbox rows were marked failed with the same error message.
+`2.0.3-sharing-permissions-implementation-review`
 
-Diagnosis:
-
-* The sync badge is doing its job; it reads pending/syncing/failed local outbox rows.
-* Client Dexie/outbox removal producers are emitting operations with empty payloads.
-* Server sync validation rejects removal operations whose payload is an empty object.
-* Therefore, this is a client/server removal-operation payload contract mismatch and a product behavior bug.
-
-## Direction chosen by Prince
-
-Prince prefers Option A:
-
-* Keep server validation strict.
-* Do not relax the sync endpoint contract to allow empty removal payloads.
-* Update every Dexie/outbox removal producer to emit a non-empty payload.
-* Canonical payload direction: `{ deleted: true }`.
-
-## Recommended next action
-
-Do not close the 1.9.x architecture series yet. The next continuation should resolve the outbox removal payload bug before architecture closeout.
-
-Recommended target:
-
-`1.9.30-option-a-outbox-removal-payload-validation-fix`
-
-Depending on product versioning rules, either convert 1.9.30 into the payload fix and push architecture closeout after it, or create an explicit patch phase and keep architecture closeout as the following versioned decision.
-
-## Expected implementation scope for Claude Code
-
-Search for all outbox producers that create removal operations with empty payloads. Update those operations to use the canonical non-empty payload shape:
-
-`payload: { deleted: true }`
-
-Likely files to inspect:
-
-* `lib/local-db/local-write.ts`
-* `components/list/ListsContainer.tsx`
-* `components/list/ListComponent.tsx`
-* `components/list/ListItemComponent.tsx`
-* `components/views/ViewsSidebarPreview.tsx`
-* `lib/sync/sync-endpoint-contract.ts`
-* `lib/sync/sync-batch-contract.ts`
-* `lib/local-db/outbox-repository.ts`
-* `tests/unit/local-write.test.ts`
-* `tests/unit/sync-endpoint-contract.test.ts`
-* `tests/unit/sync-batch-contract.test.ts`
-* `tests/unit/local-overlay.test.ts`
-* authenticated e2e specs touching removal flows
-
-Validation target:
-
-* `npm test -- local-write.test.ts sync-endpoint-contract.test.ts sync-batch-contract.test.ts local-overlay.test.ts`
-* `./scripts/validate.ps1`
-* `npm run test:ci`
-* `npm run test:e2e:auth`
-
-Manual proof target:
-
-1. Reset disposable local dev/test outbox rows only if safe.
-2. Reload dashboard.
-3. Perform a test removal operation.
-4. Confirm `/api/sync` is called.
-5. Confirm the operation returns `applied` or `already-applied`.
-6. Confirm the sync badge no longer reports failed local removal operations.
-7. Inspect IndexedDB and confirm no failed row with the empty-payload validation error.
-
-## Current synced study state
-
-* `PRODUCT_SYNC_STATE.json` synced to product `1.9.29`
-* `STUDY_STATE.json` last product read synced to product `1.9.29`
-* Recommended next target is now the outbox removal payload validation fix, not pure architecture closeout.
+Reason: the study repo is synced to product 2.0.3, but the lab has not yet studied the Sharing & Permissions implementation. Study 2.0.3 before beginning 2.0.4 Yjs Collaborative Item Notes.
 
 ## Carry forward
 

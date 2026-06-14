@@ -1,14 +1,14 @@
 {
   "productRepo": "https://github.com/princeoncada/tidy",
-  "lastSeenProductVersion": "1.9.29",
+  "lastSeenProductVersion": "2.0.3",
   "lastSeenProductState": "stable",
-  "lastSeenProductPhase": "1.9.29",
-  "lastSeenProductPhaseTitle": "Direct-Write Retirement & Default Dexie-First",
-  "lastSeenProductNextPhase": "1.9.30 - Local-First Dashboard Architecture Closeout",
-  "lastSeenProductUpdatedAt": "2026-06-13",
-  "lastSyncedIntoLabAt": "2026-06-13",
+  "lastSeenProductPhase": "2.0.3",
+  "lastSeenProductPhaseTitle": "Sharing & Permissions",
+  "lastSeenProductNextPhase": "2.0.4 - Yjs Collaborative Item Notes",
+  "lastSeenProductUpdatedAt": "2026-06-14",
+  "lastSyncedIntoLabAt": "2026-06-14",
   "syncStatus": "synced",
-  "versionsTracked": ["1.9.10","1.9.11","1.9.12","1.9.13","1.9.14","1.9.15","1.9.16","1.9.17","1.9.18","1.9.19","1.9.20","1.9.21","1.9.22","1.9.23","1.9.24","1.9.25","1.9.26","1.9.27","1.9.28","1.9.29"],
-  "pendingVersionReviews": ["1.9.11","1.9.12","1.9.13","1.9.14","1.9.15","1.9.16","1.9.17","1.9.18","1.9.19","1.9.20","1.9.21","1.9.22","1.9.23","1.9.24","1.9.25","1.9.26","1.9.27","1.9.28","1.9.29"],
-  "chaptersNeedingRebaseline": ["10-1.9-dashboard-mutation-chokepoint","1.9.20-1.9.29-local-first-series"]
+  "versionsTracked": ["1.9.10","1.9.11","1.9.12","1.9.13","1.9.14","1.9.15","1.9.16","1.9.17","1.9.18","1.9.19","1.9.20","1.9.21","1.9.22","1.9.23","1.9.24","1.9.25","1.9.26","1.9.27","1.9.28","1.9.29","1.9.30","1.9.31","1.9.32","1.10.0","1.10.1","2.0.0","2.0.1","2.0.2","2.0.3"],
+  "pendingVersionReviews": ["1.9.11","1.9.12","1.9.13","1.9.14","1.9.15","1.9.16","1.9.17","1.9.18","1.9.19","1.9.20","1.9.21","1.9.22","1.9.23","1.9.24","1.9.25","1.9.26","1.9.27","1.9.28","1.9.29","1.9.30","1.9.31","1.9.32","1.10.0","1.10.1","2.0.0","2.0.1","2.0.2","2.0.3"],
+  "chaptersNeedingRebaseline": ["10-1.9-dashboard-mutation-chokepoint","1.9.20-1.9.32-local-first-series","2.0.0-2.0.3-replicache-sharing-series"]
 }

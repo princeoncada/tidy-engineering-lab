@@ -1,23 +1,23 @@
 {
   "studyVersion": "0.1.0",
-  "labState": "paused-after-close-study",
+  "labState": "paused-after-product-sync",
   "productRepo": "https://github.com/princeoncada/tidy",
   "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
   "currentStudyTrack": "product-direction",
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "1.9.29",
+    "version": "2.0.3",
     "state": "stable",
-    "phase": "1.9.29",
-    "phaseTitle": "Direct-Write Retirement & Default Dexie-First",
-    "nextPhase": "1.9.30 - Local-First Dashboard Architecture Closeout",
-    "lastUpdated": "2026-06-13"
+    "phase": "2.0.3",
+    "phaseTitle": "Sharing & Permissions",
+    "nextPhase": "2.0.4 - Yjs Collaborative Item Notes",
+    "lastUpdated": "2026-06-14"
   },
   "completedChapters": ["00-navigation-bootcamp"],
   "activeOpenQuestions": 5,
   "activeSlopFindings": 7,
-  "nextRecommendedStudyTarget": "1.9.30-option-a-outbox-removal-payload-validation-fix",
+  "nextRecommendedStudyTarget": "2.0.3-sharing-permissions-implementation-review",
   "lastSessionSummary": "sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md",
-  "lastUpdated": "2026-06-13"
+  "lastUpdated": "2026-06-14"
 }

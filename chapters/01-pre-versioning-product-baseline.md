@@ -98,5 +98,5 @@ Prince prefers Option A for the next fix:
 
 ## Session Links
 
-* Session summary: `sessions/2026/06/session-summary.md`
+* Session summary: `sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md`
 * Current handoff: `handoffs/latest.md`

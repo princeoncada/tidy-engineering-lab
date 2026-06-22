@@ -2,7 +2,7 @@
 
 ## Status
 
-Study repo synced to the latest pushed product source-of-truth state on 2026-06-14.
+Study repo synced to the latest pushed product source-of-truth state on 2026-06-22.
 
 This is a study-repo-only sync handoff. No product code was changed by the assistant.
 
@@ -12,38 +12,40 @@ This is a study-repo-only sync handoff. No product code was changed by the assis
 
 ## Product state read during sync
 
-* Version: 2.0.3
+* Version: 3.2.9
 * State: stable
-* Phase: 2.0.3
-* Phase title: Sharing & Permissions
-* Next phase in product source of truth: 2.0.4 - Yjs Collaborative Item Notes
-* Last updated: 2026-06-14
+* Phase: 3.2.9
+* Phase title: Create-Path Idempotency Hardening (TOCTOU)
+* Next phase in product source of truth: 3.3.0 - Item Detail Panel & Notes
+* Last updated: 2026-06-22
 
 ## Latest implementation checked
 
-Product source-of-truth now records 2.0.3 as stable. The roadmap shows 2.0.3 - Sharing & Permissions completed on 2026-06-14, and the first Planned item is now 2.0.4 - Yjs Collaborative Item Notes.
+Product source-of-truth now records 3.2.9 as stable. The roadmap shows the first Planned item as 3.3.0 - Item Detail Panel & Notes.
 
 Important implementation surfaces visible in the latest product handoff/source:
 
-* Sharing data model now includes `Workspace`, `WorkspaceMember`, `ListShare`, and `ShareLink`.
-* Sharing roles are `OWNER`, `EDITOR`, and `VIEWER`.
-* Effective list access is the strongest of direct ownership, direct list share, workspace ownership, or workspace membership.
-* Key implementation files now include `lib/sync/permissions.ts`, `trpc/routers/shareRouter.ts`, `components/sharing/*`, and `app/share/[token]/page.tsx`.
-* Replicache pull computes a recipient's shared-list union at read time. Shared lists are appended after owned lists with synthetic All Lists membership/order in the client view only; recipient entries include items and effective role but keep owner tags/custom views private.
+* The dashboard is now Replicache-only for render/write behavior; legacy dashboard tRPC render, pending outbox overlay, local outbox write-capture/replay worker, `/api/sync`, and local-outbox sync badge paths were retired in the 2.0.9 arc.
+* Current user actions include list/item/tag/view CRUD, item note editing, sharing/workspace management, and theme switching.
+* Current key surfaces include `components/ReplicacheProvider.tsx`, `hooks/useReplicacheDashboard.ts`, `hooks/useDashboardMutations.ts`, `lib/sync/replicache/*`, `lib/sync/server-apply.ts`, `lib/dashboard/server-read.ts`, `lib/collab/*`, `components/list/ItemNotesEditor.tsx`, `components/sharing/*`, and `lib/sync/permissions.ts`.
+* Collaboration arc invariants now matter for study: one Replicache sync spine for web and future mobile, presence separate from Replicache, workspace model kept, and UI/design governed by `docs/design.md`.
+* Current known risk/focus area: 3.2.9 hardens create-path idempotency in `lib/sync/server-apply.ts` with transaction/savepoint recovery for unique-constraint races across list, listItem, tag, and view creates.
 
 ## Study repo sync changes
 
-* `PRODUCT_SYNC_STATE.json` now points to product 2.0.3 stable.
-* `STUDY_STATE.json` now records the latest product read as 2.0.3 stable.
-* The previous 1.9.30 delete-payload fix recommendation is no longer current product truth; it is now historical because 1.9.30, 1.9.31, 1.9.32, 1.10.0, 1.10.1, 2.0.0, 2.0.1, 2.0.2, and 2.0.3 are complete in the product roadmap.
+* `PRODUCT_SYNC_STATE.json` now points to product 3.2.9 stable.
+* `STUDY_STATE.json` now records the latest product read as 3.2.9 stable.
+* `STUDY_INDEX.md` now marks the lab as synced through 3.2.9 and adds planned study tracks for the 2.0, 2.1-2.2, and 3.0-3.2 catch-up arcs.
+* `PRODUCT_VERSION_MATRIX.md` now tracks product releases through 3.2.9.
+* `chapters/01-pre-versioning-product-baseline.md` now carries a 3.2.9 sync overlay and updated study questions.
 
 ## Recommended next study action
 
 Recommended study target:
 
-`2.0.3-sharing-permissions-implementation-review`
+`2.0.4-2.0.9-replicache-hardening-legacy-retirement-review`
 
-Reason: the study repo is synced to product 2.0.3, but the lab has not yet studied the Sharing & Permissions implementation. Study 2.0.3 before beginning 2.0.4 Yjs Collaborative Item Notes.
+Reason: the lab had only synced to 2.0.3 before this handoff. Before studying 3.3.0 Item Detail Panel & Notes, the lab should understand the 2.0.4-2.0.9 transition from early Replicache/sharing into a fully Replicache-only dashboard with Yjs notes, realtime poke authorization, dead config removal, and legacy path retirement.
 
 ## Carry forward
 

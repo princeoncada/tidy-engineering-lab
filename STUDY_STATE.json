@@ -1,23 +1,23 @@
 {
   "studyVersion": "0.1.0",
-  "labState": "paused-after-product-sync",
+  "labState": "synced-after-product-catch-up",
   "productRepo": "https://github.com/princeoncada/tidy",
   "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
-  "currentStudyTrack": "product-direction",
+  "currentStudyTrack": "product-sync-catch-up",
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "2.0.3",
+    "version": "3.2.9",
     "state": "stable",
-    "phase": "2.0.3",
-    "phaseTitle": "Sharing & Permissions",
-    "nextPhase": "2.0.4 - Yjs Collaborative Item Notes",
-    "lastUpdated": "2026-06-14"
+    "phase": "3.2.9",
+    "phaseTitle": "Create-Path Idempotency Hardening (TOCTOU)",
+    "nextPhase": "3.3.0 - Item Detail Panel & Notes",
+    "lastUpdated": "2026-06-22"
   },
   "completedChapters": ["00-navigation-bootcamp"],
   "activeOpenQuestions": 5,
   "activeSlopFindings": 7,
-  "nextRecommendedStudyTarget": "2.0.3-sharing-permissions-implementation-review",
+  "nextRecommendedStudyTarget": "2.0.4-2.0.9-replicache-hardening-legacy-retirement-review",
   "lastSessionSummary": "sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md",
-  "lastUpdated": "2026-06-14"
+  "lastUpdated": "2026-06-22"
 }

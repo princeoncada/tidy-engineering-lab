@@ -2,7 +2,7 @@
 
 ## Status
 
-Checkpointed after 2026-06-13 repo-review/support session, updated after 2026-06-14 product-sync catch-up, and resynced to product 3.2.9 on 2026-06-22.
+Checkpointed after 2026-06-13 repo-review/support session, updated after 2026-06-14 product-sync catch-up, resynced to product 3.2.9 on 2026-06-22, and resynced to product 3.5.1 on 2026-06-26.
 
 This chapter has not been completed as a full baseline study. It carries practical product-review checkpoints so the next session does not lose context.
 
@@ -10,14 +10,14 @@ This chapter has not been completed as a full baseline study. It carries practic
 
 Latest product source-of-truth read during sync:
 
-* Version: 3.2.9
+* Version: 3.5.1
 * State: stable
-* Phase: 3.2.9
-* Phase title: Create-Path Idempotency Hardening (TOCTOU)
-* Next phase: 3.3.0 - Item Detail Panel & Notes
-* Last updated: 2026-06-22
+* Phase: 3.5.1
+* Phase title: Time-Travel Read
+* Next phase: 3.5.2 - Revert
+* Last updated: 2026-06-26
 
-The lab is now metadata-synced through product 3.2.9, but the implementation study backlog is large. The lab still needs to study the 2.0.4-2.0.9 Replicache hardening / Yjs notes / legacy retirement sequence, the 2.1-2.2 deploy and visual readiness sequence, and the 3.0-3.2 collaboration shell and sync-hardening sequence before treating 3.3.0 as study-ready.
+The lab is now metadata-synced through product 3.5.1, but the implementation study backlog is large. The lab still needs to study the 2.0.4-2.0.9 Replicache hardening / Yjs notes / legacy retirement sequence, the 2.1-2.2 deploy and visual readiness sequence, the 3.0-3.2 collaboration shell and sync-hardening sequence, and the 3.3-3.5 item panel / presence / history sequence before treating 3.5.2 Revert as study-ready.
 
 ## Purpose
 
@@ -38,7 +38,7 @@ Understand the actual app architecture before versioned workflow history and mai
 * 2.0.2 - Supabase Broadcast Realtime Poke - stable 2026-06-14
 * 2.0.3 - Sharing & Permissions - stable 2026-06-14
 
-### Newly synced on 2026-06-22
+### Synced on 2026-06-22
 
 * 2.0.4 - Replicache Pull Cookie Monotonicity Fix - stable 2026-06-14
 * 2.0.5 - Share Redeem Error UX Hardening - stable 2026-06-14
@@ -71,7 +71,20 @@ Understand the actual app architecture before versioned workflow history and mai
 * 3.2.7 - Workspace Section Parity & Selection Styling - stable 2026-06-21
 * 3.2.8 - Concurrent-Pull Resilience & Fast-Switch View Convergence - stable 2026-06-22
 * 3.2.9 - Create-Path Idempotency Hardening (TOCTOU) - stable 2026-06-22
-* Next product source-of-truth phase: 3.3.0 - Item Detail Panel & Notes
+
+### Newly synced on 2026-06-26
+
+* 3.3.0 - Item Detail Panel & Notes - stable 2026-06-22
+* 3.3.1 - Item Properties (Status & Assignee) - stable 2026-06-23
+* 3.4.0 - Presence Transport Spike - stable 2026-06-23
+* 3.4.1 - Multiplayer Board - stable 2026-06-24
+* 3.4.2 - Collaboration & Sharing UX - stable 2026-06-24
+* 3.4.3 - Presence Transport Hardening - stable 2026-06-24
+* 3.4.4 - Live Presence - stable 2026-06-24
+* 3.4.5 - Board Progress & Rollups - stable 2026-06-26
+* 3.5.0 - Mutation Ledger - stable 2026-06-26
+* 3.5.1 - Time-Travel Read - stable 2026-06-26
+* Next product source-of-truth phase: 3.5.2 - Revert
 
 ## Files Read / Used During 1.9.29 Session
 
@@ -120,6 +133,26 @@ Study repo:
 * `handoffs/latest.md`
 * `chapters/01-pre-versioning-product-baseline.md`
 
+## Files Read During 3.5.1 Sync
+
+Product repo:
+
+* `STATE.json`
+* `codebase-graph.json`
+* `docs/CONTEXT_INDEX.md`
+* `docs/AI_HANDOFF.md`
+* `docs/FUTURE_PLANS.md`
+* `docs/VERSIONING.md`
+
+Study repo:
+
+* `STUDY_STATE.json`
+* `PRODUCT_SYNC_STATE.json`
+* `STUDY_INDEX.md`
+* `PRODUCT_VERSION_MATRIX.md`
+* `handoffs/latest.md`
+* `chapters/01-pre-versioning-product-baseline.md`
+
 ## Mental Model
 
 Tidy 1.9.x delivered the local-first write path: Dexie-first dashboard writes by default with bounded batch sync to the server. The sync status badge was a real outbox surface that reported pending, syncing, and failed local outbox work rather than acting as decoration.
@@ -132,6 +165,12 @@ The 3.0 arc pins Tidy's collaboration direction: one Replicache sync spine for w
 
 The 3.1 arc measured and fixed sync latency. The 3.2 arc introduced design tokens, dark mode, the collapsible sidebar/canvas shell, workspace navigation, sidebar UX refinements, drag/drop snap-back fixes, concurrent-pull resilience, and create-path idempotency hardening.
 
+The 3.3 arc adds an item detail panel, moves notes into that panel, and adds structured item properties such as status and assignee while keeping those properties on the Replicache spine.
+
+The 3.4 arc introduces the multiplayer board, collaboration/sharing UX polish, and live presence. Presence is intentionally separate from Replicache: structural sync stays in Replicache while cursors/typing/who-is-here use the realtime presence transport.
+
+The 3.5 arc adds a mutation ledger and read-only time-travel/history view. Revert/write-back is not yet implemented; it is the next product source-of-truth phase, 3.5.2.
+
 ## Runtime Flows Observed From 1.9.29 Session
 
 1. Dashboard mounted under `TRPCReactProvider`.
@@ -142,7 +181,7 @@ The 3.1 arc measured and fixed sync latency. The 3.2 arc introduced design token
 
 This flow is historical. Product truth now says the old local outbox render/replay/status surface and `/api/sync` dashboard batch endpoint were retired by the 2.0.9 Replicache-only transition.
 
-## Latest 3.2.9 Study Questions
+## Latest 3.5.1 Study Questions
 
 * How did 2.0.4 fix Replicache pull cookie monotonicity, and what failure did it prevent?
 * How did 2.0.6 introduce Yjs item notes while keeping notes outside Replicache entity storage?
@@ -152,6 +191,12 @@ This flow is historical. Product truth now says the old local outbox render/repl
 * How do 3.2.0-3.2.7 reshape the app shell, workspace navigation, theme tokens, and sidebar behavior?
 * How does 3.2.8 harden concurrent pull behavior and selected-view convergence?
 * How does 3.2.9 close the `findUnique` -> `create` TOCTOU race in `lib/sync/server-apply.ts`?
+* How did 3.3.0 move item notes into the item detail panel without changing the Yjs note document boundary?
+* How do status, assignee, and board order sync through the existing Replicache item mutation path?
+* How does 3.4 keep live presence separate from structural Replicache sync?
+* What proof distinguishes the 3.4.0 presence spike, 3.4.3 transport hardening, and 3.4.4 UI?
+* How does 3.5.0 record mutation history without turning rejected/no-op mutations into history entries?
+* What does 3.5.1 expose as read-only time travel, and what write-back behavior is deferred to 3.5.2?
 
 ## Tests / Validation Evidence From 1.9.29 Session
 
@@ -162,7 +207,7 @@ Reported by Prince before 1.9.29 merge/promotion:
 * `npm run test:ci` passed: typecheck, lint, 402 unit tests, 5 unauthenticated e2e
 * `npm run test:e2e:auth` passed: 31 passed, 1 skipped
 
-No local validation was run during the 2026-06-22 lab sync because this was a GitHub study-repo metadata update only.
+No local validation was run during the 2026-06-22 or 2026-06-26 lab sync because these were GitHub study-repo metadata updates only.
 
 ## Slop/Risk Review
 
@@ -180,7 +225,8 @@ Current study risks:
 * The lab has not yet reviewed 2.0.4-2.0.9 deeply enough to explain the Replicache-only dashboard boundary.
 * The lab has not yet reviewed the 3.0 collaboration arc or the 3.1 sync-latency measurement/fix path.
 * The lab has not yet reviewed the 3.2 shell/design/workspace UX sequence or the 3.2.8-3.2.9 sync-resilience/idempotency fixes.
-* 3.3.0 Item Detail Panel & Notes should not be studied as the next implementation target until the 2.0.4-3.2.9 catch-up path is understood at least at a map level.
+* The lab has not yet reviewed the 3.3 item detail panel / properties path, the 3.4 board/presence path, or the 3.5 ledger/time-travel path.
+* 3.5.2 Revert should not be studied as the next implementation target until the 2.0.4-3.5.1 catch-up path is understood at least at a map level.
 
 ## Senior Lessons
 
@@ -191,6 +237,7 @@ Current study risks:
 * Before collaboration work, study the authorization model as a first-class product behavior, not only as a schema/API addition.
 * A sync spine transition is not complete until obsolete render/write/status paths are removed or explicitly retained with a current owner.
 * Measurement spikes should produce reusable evidence paths, not only one-off observations.
+* History/read-only time travel and revert/write-back are different product capabilities; do not treat the ledger as a complete undo feature until the revert path ships.
 
 ## Self-Check Questions
 
@@ -204,6 +251,10 @@ Current study risks:
 * How does the Yjs note path interact with list permissions?
 * How does the 3.2 shell preserve dashboard state while changing navigation layout?
 * Why is the 3.2.9 create-path race a transaction-abort problem rather than only a duplicate-id problem?
+* How do item status, assignee, and board ordering extend list-item sync without creating a second write path?
+* Why is live presence intentionally not a Replicache entity?
+* What ledger entries does 3.5.0 intentionally not record?
+* What is the boundary between 3.5.1 read-only history and 3.5.2 revert?
 
 ## Session Links
 

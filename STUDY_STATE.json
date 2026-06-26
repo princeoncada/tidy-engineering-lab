@@ -7,17 +7,19 @@
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "3.2.9",
+    "version": "3.5.1",
     "state": "stable",
-    "phase": "3.2.9",
-    "phaseTitle": "Create-Path Idempotency Hardening (TOCTOU)",
-    "nextPhase": "3.3.0 - Item Detail Panel & Notes",
-    "lastUpdated": "2026-06-22"
+    "phase": "3.5.1",
+    "phaseTitle": "Time-Travel Read",
+    "nextPhase": "3.5.2 - Revert",
+    "lastUpdated": "2026-06-26"
   },
-  "completedChapters": ["00-navigation-bootcamp"],
+  "completedChapters": [
+    "00-navigation-bootcamp"
+  ],
   "activeOpenQuestions": 5,
   "activeSlopFindings": 7,
   "nextRecommendedStudyTarget": "2.0.4-2.0.9-replicache-hardening-legacy-retirement-review",
   "lastSessionSummary": "sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md",
-  "lastUpdated": "2026-06-22"
+  "lastUpdated": "2026-06-26"
 }

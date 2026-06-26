@@ -4,7 +4,7 @@ Tracks product versions from the lab learning perspective.
 
 Always read the product repo source documents fresh before changing this matrix.
 
-Latest product sync: `3.2.9` stable, synced into the lab on 2026-06-22.
+Latest product sync: `3.5.1` stable, synced into the lab on 2026-06-26.
 
 | Product Version | Product Phase | Product State | Lab Status | Snapshot | Case Study | Affected Study Chapters | Rebaseline Needed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -53,7 +53,17 @@ Latest product sync: `3.2.9` stable, synced into the lab on 2026-06-22.
 | 3.2.7 | Workspace Section Parity & Selection Styling | stable | Synced, pending review | TBD | TBD | `3.0.0-3.2.9-collaboration-shell-sync-series` | Yes |
 | 3.2.8 | Concurrent-Pull Resilience & Fast-Switch View Convergence | stable | Synced, pending review | TBD | TBD | `3.0.0-3.2.9-collaboration-shell-sync-series` | Yes |
 | 3.2.9 | Create-Path Idempotency Hardening (TOCTOU) | stable | Synced, pending review | TBD | TBD | `3.0.0-3.2.9-collaboration-shell-sync-series` | Yes |
+| 3.3.0 | Item Detail Panel & Notes | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.3.1 | Item Properties (Status & Assignee) | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.0 | Presence Transport Spike | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.1 | Multiplayer Board | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.2 | Collaboration & Sharing UX | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.3 | Presence Transport Hardening | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.4 | Live Presence | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.4.5 | Board Progress & Rollups | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.5.0 | Mutation Ledger | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.5.1 | Time-Travel Read | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
 
 ## Current Study Recommendation
 
-Study `2.0.4-2.0.9-replicache-hardening-legacy-retirement-review` before starting product phase `3.3.0 - Item Detail Panel & Notes`.
+Study `2.0.4-2.0.9-replicache-hardening-legacy-retirement-review` first, then map `3.0.0-3.5.1` at an architecture level before studying product phase `3.5.2 - Revert`.

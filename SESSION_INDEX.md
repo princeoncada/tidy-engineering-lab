@@ -8,6 +8,7 @@ Use this file to list prior sessions, choose a session to review, or set a past 
 
 | Session ID | Date | Title | Chapter / Target | Product Version | Status | Summary File | Restudy Command |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-06-28-3.6.3-workflow-realignment-sync-closeout | 2026-06-28 | 3.6.3 Workflow Realignment Sync Closeout | `01-pre-versioning-product-baseline` / product-sync closeout | 3.6.3 | Completed | `sessions/2026/06/2026-06-28-3.6.3-workflow-realignment-sync-closeout.md` | `/restudy-session 2026-06-28-3.6.3-workflow-realignment-sync-closeout` |
 | 2026-06-13-1.9.29-branch-review-sync-badge-diagnosis | 2026-06-13 | 1.9.29 Branch Review and Sync Badge Diagnosis | `01-pre-versioning-product-baseline` / `1.9.29-direct-write-retirement` | 1.9.29 | Needs refresh | `sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md` | `/restudy-session 2026-06-13-1.9.29-branch-review-sync-badge-diagnosis` |
 | 2026-06-07-product-first-roadmap-rebaseline | 2026-06-07 | Product-First Roadmap Rebaseline | `1.10.0-product-first-planning-contract-roadmap-rebaseline` | 1.9.10 | Restudy-ready | `sessions/2026/06/2026-06-07-product-first-roadmap-rebaseline.md` | `/restudy-session 2026-06-07-product-first-roadmap-rebaseline` |
 | 2026-06-06-navigation-bootcamp | 2026-06-06 | Navigation Bootcamp | `00-navigation-bootcamp` | 1.9.5 | Restudy-ready | `sessions/2026/06/2026-06-06-navigation-bootcamp.md` | `/restudy-session 2026-06-06-navigation-bootcamp` |

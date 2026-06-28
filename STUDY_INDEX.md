@@ -4,7 +4,7 @@
 
 Current chapter: `01-pre-versioning-product-baseline`
 Current mode: Reading, navigation, and product-sync catch-up
-Latest product sync: `3.5.1` stable, synced into the lab on 2026-06-26
+Latest product sync: `3.6.3` stable, synced into the lab on 2026-06-28
 Next recommended target: `2.0.4-2.0.9-replicache-hardening-legacy-retirement-review`
 
 ## Source Repos
@@ -19,7 +19,7 @@ Next recommended target: `2.0.4-2.0.9-replicache-hardening-legacy-retirement-rev
 | Track | Chapter | Status | Purpose |
 | --- | --- | --- | --- |
 | Navigation Bootcamp | `00-navigation-bootcamp` | Completed | Learn repo navigation, source-of-truth docs, and safe reading workflow |
-| Product Baseline | `01-pre-versioning-product-baseline` | Active / needs rebaseline | Understand the actual app architecture before versioned workflow history; currently carrying product sync through 3.5.1 |
+| Product Baseline | `01-pre-versioning-product-baseline` | Active / needs rebaseline | Understand the actual app architecture before versioned workflow history; currently carrying product sync through 3.6.3 |
 | Dexie Foundation | `02-dexie-foundation` | Not started | Understand local DB foundation and non-runtime boundaries |
 | Outbox Sync Queue | `03-outbox-sync-queue` | Not started | Understand outbox helpers, coalescing, replay, and deferred sync |
 | View Filter Hardening | `04-view-filter-hardening` | Not started | Understand projection correctness and view/list/tag consistency |
@@ -33,6 +33,7 @@ Next recommended target: `2.0.4-2.0.9-replicache-hardening-legacy-retirement-rev
 | 2.1-2.2 Deploy / Visual Readiness | `2.1.0-2.2.3-deploy-visual-readiness-series` | Planned / needs study | Understand deployment readiness, visual pass, render-gate cleanup, idempotency, and seriesComplete reconciliation |
 | 3.0-3.2 Collaboration Shell / Sync Hardening | `3.0.0-3.2.9-collaboration-shell-sync-series` | Planned / needs study | Understand collaboration roadmap pinning, design source of truth, sync-latency work, shell/workspace UX, and Replicache resilience fixes |
 | 3.3-3.5 Item Panel / Presence / History | `3.3.0-3.5.1-item-panel-presence-history-series` | Planned / needs study | Understand item detail panel, item properties, multiplayer board, presence transport/UI, board rollups, mutation ledger, and read-only time travel |
+| 3.5.2-3.6 Revert / Tidy Stewardship / Workflow Realignment | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Planned / needs study | Understand replay-based revert, Tidy stewardship docs, staleness/consolidation cleanup, and the new ChatGPT / Claude Code / Codex role model before the Workspace OS RFC |
 
 ## Continuity
 

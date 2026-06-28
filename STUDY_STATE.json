@@ -1,18 +1,18 @@
 {
   "studyVersion": "0.1.0",
-  "labState": "synced-after-product-catch-up",
+  "labState": "synced-after-3.6.3-workflow-realignment-closeout",
   "productRepo": "https://github.com/princeoncada/tidy",
   "studyRepo": "https://github.com/princeoncada/tidy-engineering-lab",
   "currentStudyTrack": "product-sync-catch-up",
   "currentChapter": "01-pre-versioning-product-baseline",
   "currentSession": null,
   "lastMainRepoStateRead": {
-    "version": "3.5.1",
+    "version": "3.6.3",
     "state": "stable",
-    "phase": "3.5.1",
-    "phaseTitle": "Time-Travel Read",
-    "nextPhase": "3.5.2 - Revert",
-    "lastUpdated": "2026-06-26"
+    "phase": "3.6.3",
+    "phaseTitle": "Agent Workflow Realignment",
+    "nextPhase": "3.6.4 - Workspace OS Rebase RFC",
+    "lastUpdated": "2026-06-28"
   },
   "completedChapters": [
     "00-navigation-bootcamp"
@@ -20,6 +20,6 @@
   "activeOpenQuestions": 5,
   "activeSlopFindings": 7,
   "nextRecommendedStudyTarget": "2.0.4-2.0.9-replicache-hardening-legacy-retirement-review",
-  "lastSessionSummary": "sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md",
-  "lastUpdated": "2026-06-26"
+  "lastSessionSummary": "sessions/2026/06/2026-06-28-3.6.3-workflow-realignment-sync-closeout.md",
+  "lastUpdated": "2026-06-28"
 }

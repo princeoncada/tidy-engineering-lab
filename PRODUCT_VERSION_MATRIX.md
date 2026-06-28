@@ -4,7 +4,7 @@ Tracks product versions from the lab learning perspective.
 
 Always read the product repo source documents fresh before changing this matrix.
 
-Latest product sync: `3.5.1` stable, synced into the lab on 2026-06-26.
+Latest product sync: `3.6.3` stable, synced into the lab on 2026-06-28.
 
 | Product Version | Product Phase | Product State | Lab Status | Snapshot | Case Study | Affected Study Chapters | Rebaseline Needed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,12 @@ Latest product sync: `3.5.1` stable, synced into the lab on 2026-06-26.
 | 3.4.5 | Board Progress & Rollups | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
 | 3.5.0 | Mutation Ledger | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
 | 3.5.1 | Time-Travel Read | stable | Synced, pending review | TBD | TBD | `3.3.0-3.5.1-item-panel-presence-history-series` | Yes |
+| 3.5.2 | Revert | stable | Synced, pending review | TBD | TBD | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Yes |
+| 3.6.0 | Tidy Stewardship Foundation | stable | Synced, pending review | TBD | TBD | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Yes |
+| 3.6.1 | Repo Staleness Audit | stable | Synced, pending review | TBD | TBD | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Yes |
+| 3.6.2 | Docs Consolidation Cleanup | stable | Synced, pending review | TBD | TBD | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Yes |
+| 3.6.3 | Agent Workflow Realignment | stable | Synced, pending review | TBD | TBD | `3.5.2-3.6.3-revert-stewardship-workflow-series` | Yes |
 
 ## Current Study Recommendation
 
-Study `2.0.4-2.0.9-replicache-hardening-legacy-retirement-review` first, then map `3.0.0-3.5.1` at an architecture level before studying product phase `3.5.2 - Revert`.
+Study `2.0.4-2.0.9-replicache-hardening-legacy-retirement-review` first, then map `3.0.0-3.6.3` at an architecture level before studying product phase `3.6.4 - Workspace OS Rebase RFC`.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Checkpointed after 2026-06-13 repo-review/support session, updated after 2026-06-14 product-sync catch-up, resynced to product 3.2.9 on 2026-06-22, and resynced to product 3.5.1 on 2026-06-26.
+Checkpointed after 2026-06-13 repo-review/support session, updated after 2026-06-14 product-sync catch-up, resynced to product 3.2.9 on 2026-06-22, resynced to product 3.5.1 on 2026-06-26, and resynced to product 3.6.3 on 2026-06-28.
 
 This chapter has not been completed as a full baseline study. It carries practical product-review checkpoints so the next session does not lose context.
 
@@ -10,14 +10,14 @@ This chapter has not been completed as a full baseline study. It carries practic
 
 Latest product source-of-truth read during sync:
 
-* Version: 3.5.1
+* Version: 3.6.3
 * State: stable
-* Phase: 3.5.1
-* Phase title: Time-Travel Read
-* Next phase: 3.5.2 - Revert
-* Last updated: 2026-06-26
+* Phase: 3.6.3
+* Phase title: Agent Workflow Realignment
+* Next phase: 3.6.4 - Workspace OS Rebase RFC
+* Last updated: 2026-06-28
 
-The lab is now metadata-synced through product 3.5.1, but the implementation study backlog is large. The lab still needs to study the 2.0.4-2.0.9 Replicache hardening / Yjs notes / legacy retirement sequence, the 2.1-2.2 deploy and visual readiness sequence, the 3.0-3.2 collaboration shell and sync-hardening sequence, and the 3.3-3.5 item panel / presence / history sequence before treating 3.5.2 Revert as study-ready.
+The lab is now metadata-synced through product 3.6.3, but the implementation study backlog is large. The lab still needs to study the 2.0.4-2.0.9 Replicache hardening / Yjs notes / legacy retirement sequence, the 2.1-2.2 deploy and visual readiness sequence, the 3.0-3.2 collaboration shell and sync-hardening sequence, the 3.3-3.5.1 item panel / presence / history sequence, and the 3.5.2-3.6.3 revert / stewardship / workflow sequence before treating the 3.6.4 Workspace OS Rebase RFC as study-ready.
 
 ## Purpose
 
@@ -72,7 +72,7 @@ Understand the actual app architecture before versioned workflow history and mai
 * 3.2.8 - Concurrent-Pull Resilience & Fast-Switch View Convergence - stable 2026-06-22
 * 3.2.9 - Create-Path Idempotency Hardening (TOCTOU) - stable 2026-06-22
 
-### Newly synced on 2026-06-26
+### Synced on 2026-06-26
 
 * 3.3.0 - Item Detail Panel & Notes - stable 2026-06-22
 * 3.3.1 - Item Properties (Status & Assignee) - stable 2026-06-23
@@ -84,7 +84,15 @@ Understand the actual app architecture before versioned workflow history and mai
 * 3.4.5 - Board Progress & Rollups - stable 2026-06-26
 * 3.5.0 - Mutation Ledger - stable 2026-06-26
 * 3.5.1 - Time-Travel Read - stable 2026-06-26
-* Next product source-of-truth phase: 3.5.2 - Revert
+
+### Synced on 2026-06-28
+
+* 3.5.2 - Revert - stable 2026-06-26
+* 3.6.0 - Tidy Stewardship Foundation - stable 2026-06-27
+* 3.6.1 - Repo Staleness Audit - stable 2026-06-28
+* 3.6.2 - Docs Consolidation Cleanup - stable 2026-06-28
+* 3.6.3 - Agent Workflow Realignment - stable 2026-06-28
+* Next product source-of-truth phase: 3.6.4 - Workspace OS Rebase RFC
 
 ## Files Read / Used During 1.9.29 Session
 
@@ -153,13 +161,34 @@ Study repo:
 * `handoffs/latest.md`
 * `chapters/01-pre-versioning-product-baseline.md`
 
+## Files Read During 3.6.3 Sync / Closeout
+
+Product repo:
+
+* `STATE.json`
+* `docs/FUTURE_PLANS.md`
+* `docs/AI_HANDOFF.md`
+* `docs/WORKFLOW.md`
+* `docs/CODEX_RULES.md`
+* `docs/VERSIONING.md`
+
+Study repo:
+
+* `STUDY_STATE.json`
+* `PRODUCT_SYNC_STATE.json`
+* `STUDY_INDEX.md`
+* `PRODUCT_VERSION_MATRIX.md`
+* `handoffs/latest.md`
+* `chapters/01-pre-versioning-product-baseline.md`
+* `chapters/3.3.0-3.5.1-item-panel-presence-history-series.md`
+
 ## Mental Model
 
 Tidy 1.9.x delivered the local-first write path: Dexie-first dashboard writes by default with bounded batch sync to the server. The sync status badge was a real outbox surface that reported pending, syncing, and failed local outbox work rather than acting as decoration.
 
 The 2.0.x arc changed the read/render model: the dashboard renders from the Replicache local store by default and later retired the old overlay/outbox-render/tRPC-render compatibility paths. As of 2.0.9, Replicache is the dashboard render/write spine.
 
-2.0.3 added sharing and permissions on top of Replicache. 2.0.6 added Yjs collaborative item notes, while 2.0.7 fixed realtime poke send authorization and 2.0.9 retired legacy dashboard paths.
+2.0.3 added sharing and permissions on top of Replicache. 2.0.6 added Yjs collaborative item notes, while 2.0.7 fixed realtime poke authorization and 2.0.9 retired legacy dashboard paths.
 
 The 3.0 arc pins Tidy's collaboration direction: one Replicache sync spine for web and future mobile, presence separate from Replicache, existing workspaces kept, and design governed by `docs/design.md`.
 
@@ -169,7 +198,9 @@ The 3.3 arc adds an item detail panel, moves notes into that panel, and adds str
 
 The 3.4 arc introduces the multiplayer board, collaboration/sharing UX polish, and live presence. Presence is intentionally separate from Replicache: structural sync stays in Replicache while cursors/typing/who-is-here use the realtime presence transport.
 
-The 3.5 arc adds a mutation ledger and read-only time-travel/history view. Revert/write-back is not yet implemented; it is the next product source-of-truth phase, 3.5.2.
+The 3.5 arc adds a mutation ledger, read-only time-travel/history view, and replay-based revert/write-back. 3.5.2 uses ledger replay to reconstruct prior state and writes corrective operations through server-apply with the existing Replicache/poke path.
+
+The 3.6 arc prepares the repo for the Workspace OS pivot: `docs/tidy/*` acts as a support layer for source-of-truth mapping, staleness audit, cleanup backlog, and agent support checklists; 3.6.3 realigns roles so ChatGPT is the second-opinion/docs-workflow auditor, Claude Code is the future-plan architect and Codex-ready implementation explainer, Codex implements and reports automated validation evidence, and the user/controller owns manual validation and closeout.
 
 ## Runtime Flows Observed From 1.9.29 Session
 
@@ -181,7 +212,7 @@ The 3.5 arc adds a mutation ledger and read-only time-travel/history view. Rever
 
 This flow is historical. Product truth now says the old local outbox render/replay/status surface and `/api/sync` dashboard batch endpoint were retired by the 2.0.9 Replicache-only transition.
 
-## Latest 3.5.1 Study Questions
+## Latest 3.6.3 Study Questions
 
 * How did 2.0.4 fix Replicache pull cookie monotonicity, and what failure did it prevent?
 * How did 2.0.6 introduce Yjs item notes while keeping notes outside Replicache entity storage?
@@ -196,7 +227,10 @@ This flow is historical. Product truth now says the old local outbox render/repl
 * How does 3.4 keep live presence separate from structural Replicache sync?
 * What proof distinguishes the 3.4.0 presence spike, 3.4.3 transport hardening, and 3.4.4 UI?
 * How does 3.5.0 record mutation history without turning rejected/no-op mutations into history entries?
-* What does 3.5.1 expose as read-only time travel, and what write-back behavior is deferred to 3.5.2?
+* What does 3.5.1 expose as read-only time travel, and how does 3.5.2 write corrective revert operations without creating a second sync path?
+* What does the `docs/tidy/*` support layer own, and which product/workflow facts must remain owned elsewhere?
+* How did 3.6.3 change the ChatGPT / Claude Code / Codex / user-controller role model?
+* What must 3.6.4 decide before the 4.0 Workspace OS Product Model Rebase begins?
 
 ## Tests / Validation Evidence From 1.9.29 Session
 
@@ -207,7 +241,7 @@ Reported by Prince before 1.9.29 merge/promotion:
 * `npm run test:ci` passed: typecheck, lint, 402 unit tests, 5 unauthenticated e2e
 * `npm run test:e2e:auth` passed: 31 passed, 1 skipped
 
-No local validation was run during the 2026-06-22 or 2026-06-26 lab sync because these were GitHub study-repo metadata updates only.
+No local validation was run during the 2026-06-22, 2026-06-26, or 2026-06-28 lab sync because these were GitHub study-repo metadata updates only.
 
 ## Slop/Risk Review
 
@@ -225,8 +259,9 @@ Current study risks:
 * The lab has not yet reviewed 2.0.4-2.0.9 deeply enough to explain the Replicache-only dashboard boundary.
 * The lab has not yet reviewed the 3.0 collaboration arc or the 3.1 sync-latency measurement/fix path.
 * The lab has not yet reviewed the 3.2 shell/design/workspace UX sequence or the 3.2.8-3.2.9 sync-resilience/idempotency fixes.
-* The lab has not yet reviewed the 3.3 item detail panel / properties path, the 3.4 board/presence path, or the 3.5 ledger/time-travel path.
-* 3.5.2 Revert should not be studied as the next implementation target until the 2.0.4-3.5.1 catch-up path is understood at least at a map level.
+* The lab has not yet reviewed the 3.3 item detail panel / properties path, the 3.4 board/presence path, or the 3.5 ledger/time-travel/revert path.
+* The lab has not yet reviewed the 3.6 stewardship/workflow realignment path or the new ChatGPT / Claude Code / Codex responsibility split.
+* 3.6.4 Workspace OS Rebase RFC should not be studied as the next implementation target until the 2.0.4-3.6.3 catch-up path is understood at least at a map level.
 
 ## Senior Lessons
 
@@ -238,6 +273,8 @@ Current study risks:
 * A sync spine transition is not complete until obsolete render/write/status paths are removed or explicitly retained with a current owner.
 * Measurement spikes should produce reusable evidence paths, not only one-off observations.
 * History/read-only time travel and revert/write-back are different product capabilities; do not treat the ledger as a complete undo feature until the revert path ships.
+* Docs support folders are not source-of-truth owners; they should map, audit, and route back to canonical owner docs.
+* Agent role realignment must be reflected in workflow docs, Codex rules, handoffs, and skills together or future prompts will drift.
 
 ## Self-Check Questions
 
@@ -255,8 +292,10 @@ Current study risks:
 * Why is live presence intentionally not a Replicache entity?
 * What ledger entries does 3.5.0 intentionally not record?
 * What is the boundary between 3.5.1 read-only history and 3.5.2 revert?
+* How does `docs/tidy/*` support source-of-truth ownership without becoming source of truth?
+* What automated validation evidence belongs to Codex after 3.6.3, and what remains user/controller-owned?
 
 ## Session Links
 
-* Session summary: `sessions/2026/06/2026-06-13-1.9.29-branch-review-sync-badge-diagnosis.md`
+* Session summary: `sessions/2026/06/2026-06-28-3.6.3-workflow-realignment-sync-closeout.md`
 * Current handoff: `handoffs/latest.md`
